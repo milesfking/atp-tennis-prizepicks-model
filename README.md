@@ -8,15 +8,15 @@ Using data sourced from [Jeff Sackmann's ATP Tennis Rankings Database](https://g
 
 PrizePicks allows users to pick the over or under on player props across dozens of sports, one of which is tennis. Depending on the tournament, PrizePicks lists over/under lines for a number of categories. Below is a list of props and how they are calculated.
 
-#### Aces
+### Aces
 
 Total number of aces (legal serves that are not touched by the receiver) by the player throughout a match.
 
-#### Total Games
+### Total Games
 
 Total number of games played in a match. Tennis matches typically consist of three or five sets where each set is played to six games.
 
-#### Fantasy Score
+### Fantasy Score
 
 A player's fantasy score is an arbitrary number calculated by the following individual stats:
   - Match Played: 10 pts
