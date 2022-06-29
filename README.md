@@ -8,7 +8,7 @@ Using data sourced from [Jeff Sackmann's ATP Tennis Rankings Database](https://g
 
 ## About PrizePicks
 
-PrizePicks allows users to pick the over or under on player props across dozens of sports, one of which is tennis. Depending on the tournament, PrizePicks lists over/under lines for a number of categories. Below is a list of props and how they are calculated.
+PrizePicks allows users to pick the over or under on player props across dozens of sports, one of which is tennis. Depending on the tournament, PrizePicks lists over/under lines for a number of categories which can be accessed online on the [PrizePicks](https://www.prizepicks.com) website or pulled directly into Python via the [PrizePicks API](https://github.com/PrizePicks-Analytics/PrizePicks-API/wiki). Below is a list of props and how they are calculated.
 
 ### Aces
 
@@ -31,5 +31,13 @@ A player's fantasy score is an arbitrary number calculated by the following indi
 
 ## About the ATP Tennis Rankings Database
 
-The ATP Tennis Rankings Database includes a plethora of match by match data including tournament and round info, player metadata, and in-match statistics. The data was cleaned to better fit the purposes of the model - this process is broken down in the data cleaning notebook.
+The ATP Tennis Rankings Database includes a plethora of match by match data including tournament and round info, player metadata, and in-match statistics. The data was cleaned to better fit the purposes of the model. Both the original Sackmann dataset and the cleaned dataset can be found in the data folder.
+
+## Data Cleaning
+
+The data, while robust, needed to be wrangled into a form more useful for modeling. This included the following:
+
+### Fantasy Points Variable
+
+As the original data was not compiled by Sackmann for PrizePicks purposes, a column needed to be created for our intended response variable, fantasy points. Mutating a fantasy points variable involved separating the `score` column, which listed the match scores as a string of set scores (e.g. '6-3 5-7 6-4') into both games won/lost and sets won/lost by a player. I then took a weighted average of these variables along with the player's aces and double faults to obtain their fantasy score.
 
