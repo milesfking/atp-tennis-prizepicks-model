@@ -49,10 +49,6 @@ Data in the original format was separated by the winning player and the losing p
 
 Since data is entered on a match-by-match basis, there are no columns which offer historical averages for statistics of interest. As such, for each match, I iterated through the player's previous matches and computed averages for stats including `fantasy_pts`, `ace`, and `df` (double faults) up until that specific match. These averages were stored as `avg_fantasy_pts`, `avg_ace`, and `avg_df`. A similar process was repeated for matches where the two players had faced one another before, stored as `h2h_fantasy_pts`. An obviously flaw of this system is that all matches are weighted equally. In reality, more recent matches are likely far more indicative of player form, and this will be addressed in future iterations of the model.
 
-### Categorical Data
-
-A few select categorical variables - including the type of court and player handedness - needed to be converted to predictor variables by using dummy variables.
-
 ### Missing Data
 
-Missing data was plentiful and was handled according the category of the missing data.
+Missing data was plentiful and was handled according the category of the missing data. Unseeded players were assigned an arbitrarily lower seed. First-time players without stat averages were assigned the average stats for all games played with first-time players. If no previous matches were played between two players, the `h2h_fantasy_pts` column was populated with the `avg_fantasy_pts` column.
