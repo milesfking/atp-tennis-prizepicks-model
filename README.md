@@ -51,4 +51,8 @@ Since data is entered on a match-by-match basis, there are no columns which offe
 
 ### Missing Data
 
-Missing data was plentiful and was handled according the category of the missing data. Unseeded players were assigned an arbitrarily lower seed. First-time players without stat averages were assigned the average stats for all games played with first-time players. If no previous matches were played between two players, the `h2h_fantasy_pts` column was populated with the `avg_fantasy_pts` column.
+Missing data was plentiful and was handled according the category of the missing data. Unseeded players were assigned an arbitrarily low seed. Most tournaments only seed up to 8 players, while major tournaments can seed 32 players. I set the seed of unseeded players as 50 and plan to test an array of different values to find a better value.
+
+First-time players without stat averages were assigned the average stats for all games played with first-time players. For instance, if Carlos Alcaraz has never played a match before, his `average_fantasy_pts` column would be populated by taking the average of true fantasy points for all newcomers in their first matches. 
+
+If no previous matches were played between two players, the `h2h_fantasy_pts` column was populated with the player's value from the `avg_fantasy_pts` column, as we can only assume that the player's performance will be average against an opponent he has never faced before.
