@@ -31,7 +31,7 @@ A player's fantasy score is an arbitrary number calculated by the following indi
 
 ## About the ATP Tennis Rankings Database
 
-The ATP Tennis Rankings Database includes a plethora of match by match data including tournament and round info, player metadata, and in-match statistics. The data was cleaned to better fit the purposes of the model. Both the original Sackmann dataset and the cleaned dataset can be found in the data folder.
+The ATP Tennis Rankings Database includes a plethora of match by match data including tournament and round info, player metadata, and in-match statistics. The data was cleaned to better fit the purposes of the model. Both the original Sackmann dataset (which is simply composed of all concatenated CSV files of the form `atp_matches_yyyy.csv` for years 1997 to 2021) and the cleaned dataset can be found in the data folder.
 
 ## Data Cleaning
 
@@ -39,5 +39,9 @@ The data, while robust, needed to be wrangled into a form more useful for modeli
 
 ### Fantasy Points Variable
 
-As the original data was not compiled by Sackmann for PrizePicks purposes, a column needed to be created for our intended response variable, fantasy points. Mutating a fantasy points variable involved separating the `score` column, which listed the match scores as a string of set scores (e.g. '6-3 5-7 6-4') into both games won/lost and sets won/lost by a player. I then took a weighted average of these variables along with the player's aces and double faults to obtain their fantasy score.
+As the original data was not compiled by Sackmann for PrizePicks purposes, a column needed to be created for our intended response variable, fantasy points. Mutating a fantasy points variable involved separating the `score` column, which listed the match scores as a string of set scores (e.g. '6-3 5-7 6-4') into both games won/lost and sets won/lost by a player. I then took a weighted average of these variables along with the player's aces and double faults to obtain their fantasy score, saved under the `fantasy_pts` column. Other basic data cleaning was performed during this process, including dropping matches that were forfeited and removing points won during tiebreak games (which do not count towards fantasy points) from the score.
+
+### Restructuring the Dataset
+
+Data in the original format was separated by the winning player and the losing player. In order to be able to predict the fantasy points of a player with just one variable, I changed the dataset from a "winner-loser" format to a "player-opponent" format by unnesting each match into two separate observations - one for each player. For instance, if Rafael Nadal plays Novak Djokovic, the newly formatted dataset would have one row to represent Nadal and one to represent Djokovic. While this did effectively double the number of rows of the dataset, it allowed me to condense the variable of interest into just one variable, rather than separate columns for `winner_fantasy_pts` and `loser_fantasy_pts`.
 
