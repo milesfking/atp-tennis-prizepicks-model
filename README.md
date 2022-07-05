@@ -56,3 +56,7 @@ Missing data was plentiful and was handled according the category of the missing
 First-time players without stat averages were assigned the average stats for all games played with first-time players. For instance, if Carlos Alcaraz has never played a match before, his `average_fantasy_pts` column would be populated by taking the average of true fantasy points for all newcomers in their first matches. 
 
 If no previous matches were played between two players, the `h2h_fantasy_pts` column was populated with the player's value from the `avg_fantasy_pts` column, as we can only assume that the player's performance will be average against an opponent he has never faced before.
+
+## Feature Selection
+
+The cleaned dataset still includes a number of variables that will not be included in our model. To make our dataset ready for modeling, we must select only the relevant and signifcant variables. The process for obtaining a dataset suitable for the model included converting categorical variables to dummy variables, principal components analysis, and penalized regression.
