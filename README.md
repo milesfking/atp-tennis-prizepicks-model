@@ -57,6 +57,10 @@ First-time players without stat averages were assigned the average stats for all
 
 If no previous matches were played between two players, the `h2h_fantasy_pts` column was populated with the player's value from the `avg_fantasy_pts` column, as we can only assume that the player's performance will be average against an opponent he has never faced before.
 
-## Feature Selection
+# Modeling
 
-The cleaned dataset still includes a number of variables that will not be included in our model. To make our dataset ready for modeling, we must select only the relevant and signifcant variables. The process for obtaining a dataset suitable for the model included converting categorical variables to dummy variables, principal components analysis, and penalized regression.
+To determine what type of model would be the best at predicting a player's fantasy points, we fit four distinct models: a linear regression model, a penalized (lasso) regression model, a decision tree regressor, and a random forest regressor.
+
+## Pre-processing
+
+The cleaned dataset still includes a number of variables that will not be included in our model. To make our dataset ready for modeling, we began by select only significant variables, removing metadata (such as a player's name and country) in the process. The process for obtaining a dataset suitable for modeling also included converting categorical variables (`surface`, `binned_age`, and  `opp_binned_age`) to dummy variables.
