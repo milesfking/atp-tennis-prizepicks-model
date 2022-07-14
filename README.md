@@ -63,4 +63,8 @@ To determine what type of model would be the best at predicting a player's fanta
 
 ## Pre-processing
 
-The cleaned dataset still includes a number of variables that will not be included in our model. To make our dataset ready for modeling, we began by select only significant variables, removing metadata (such as a player's name and country) in the process. The process for obtaining a dataset suitable for modeling also included converting categorical variables (`surface`, `binned_age`, and  `opp_binned_age`) to dummy variables.
+The cleaned dataset still includes a number of variables that will not be included in our model. To make our dataset ready for modeling, we began by select only significant variables, removing metadata (such as a player's name and country) in the process. The process for obtaining a dataset suitable for modeling also included converting categorical variables (like `surface`) to dummy variables.
+
+## Model Evaluation
+
+The cleaned data was split into a trainning set and a test set, and the 4 various models were fit to the training data. Success was evaluated by the mean-squared-error, mean-absolute-error, and R-squared values of the 4 models. In reality, mean-absolute-error is probably more important than mean-squared-error, as predictions that are "really wrong" aren't any worse in PrizePicks than predictions that are "slightly wrong." It was clear that the random forest model performed the best on the data, with the lowest errors and highest R-squared among the data.
