@@ -4,7 +4,10 @@ Using data sourced from [Jeff Sackmann's ATP Tennis Rankings Database](https://g
 
 *Note: Pursuant to the Sackmann's [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/), I will not attempt to profit from the model. Success will instead be evaluated by placing hypothetical over/under bets and recording the results on an Excel spreadhseet.
 
-*This is an ongoing project and the repository will continue to be updated as progress is made.
+*This is an ongoing project and the repository will continue to be updated as progress is made (updated July 2022)
+Currently working on:
+  - cleaning and optimizing code (helper functions, limiting redundancy, reorganizing data cleaning section)
+  - populating dataframe with future matches for test predictions
 
 ## About PrizePicks
 
@@ -67,4 +70,4 @@ The cleaned dataset still includes a number of variables that will not be includ
 
 ## Model Evaluation
 
-The cleaned data was split into a trainning set and a test set, and the 4 various models were fit to the training data. Success was evaluated by the mean-squared-error, mean-absolute-error, and R-squared values of the 4 models. In reality, mean-absolute-error is probably more important than mean-squared-error, as predictions that are "really wrong" aren't any worse in PrizePicks than predictions that are "slightly wrong." It was clear that the random forest model performed the best on the data, with the lowest errors and highest R-squared among the data.
+The cleaned data was split into a trainning set and a test set, and the 4 various models were fit to the training data. Success was evaluated by the mean-squared-error, mean-absolute-error, and R-squared values of the 4 models. In reality, mean-absolute-error is probably more important than mean-squared-error, as predictions that are "really wrong" aren't any worse in PrizePicks than predictions that are "slightly wrong." It was clear that the random forest model performed the best on the data, with the lowest errors and highest R-squared among the data. The random forest was created using the `sklearn` package and further refined by conducting a gridsearch for the best hyperparameters (including the max depth and max features of the trees in the forest).
