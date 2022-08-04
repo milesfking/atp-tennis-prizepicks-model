@@ -60,14 +60,22 @@ First-time players without stat averages were assigned the average stats for all
 
 If no previous matches were played between two players, the `h2h_fantasy_pts` column was populated with the player's value from the `avg_fantasy_pts` column, as we can only assume that the player's performance will be average against an opponent he has never faced before.
 
-# Modeling
+## Modeling
 
 To determine what type of model would be the best at predicting a player's fantasy points, we fit four distinct models: a linear regression model, a penalized (lasso) regression model, a decision tree regressor, and a random forest regressor.
 
-## Pre-processing
+### Pre-processing
 
 The cleaned dataset still includes a number of variables that will not be included in our model. To make our dataset ready for modeling, we began by select only significant variables, removing metadata (such as a player's name and country) in the process. The process for obtaining a dataset suitable for modeling also included converting categorical variables (like `surface`) to dummy variables.
 
-## Model Evaluation
+### Model Evaluation
 
 The cleaned data was split into a trainning set and a test set, and the 4 various models were fit to the training data. Success was evaluated by the mean-squared-error, mean-absolute-error, and R-squared values of the 4 models. In reality, mean-absolute-error is probably more important than mean-squared-error, as predictions that are "really wrong" aren't any worse in PrizePicks than predictions that are "slightly wrong." It was clear that the random forest model performed the best on the data, with the lowest errors and highest R-squared among the data. The random forest was created using the `sklearn` package and further refined by conducting a gridsearch for the best hyperparameters (including the max depth and max features of the trees in the forest).
+
+## Results
+
+As the best performing model, the random forest regressor achieved a test R-squared of 0.718, with a test mean-squared-error of 27.494 and a test mean-absolute-error of 3.891.
+
+For data with a standard deviation of 11.315, these results are satisfying. Though we believe they could still be improved with data cleaning refinements, these results are far more accurate than simply predicting a player's career average.
+
+The original question I set out to answer, however, is whether one could make money on PrizePicks using these predictions. To determine this, I will use the model predictions to make mock bets on the results of the U.S. Open at the end of August and beginning of September.
