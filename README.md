@@ -4,10 +4,10 @@ Using data sourced from [Jeff Sackmann's ATP Tennis Rankings Database](https://g
 
 *Note: Pursuant to the Sackmann's [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/), I will not attempt to profit from the model. Success will instead be evaluated by placing hypothetical over/under bets and recording the results on an Excel spreadhseet.
 
-*This is an ongoing project and the repository will continue to be updated as progress is made (updated July 2022)
+*This is an ongoing project and the repository will continue to be updated as progress is made (updated August 6 2022)
 ### Currently working on:
-  1). cleaning and optimizing code (helper functions, limiting redundancy, reorganizing data cleaning section)
-  2). populating dataframe with future matches for test predictions
+  1). Sewing the three notebooks together
+  2). Improving modeling performance where possible (hyperparameter tuning, additional preprocessing, etc.)
 
 ## About PrizePicks
 
