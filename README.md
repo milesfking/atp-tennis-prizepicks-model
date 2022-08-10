@@ -4,14 +4,14 @@ Using data sourced from [Jeff Sackmann's ATP Tennis Rankings Database](https://g
 
 *Note: Pursuant to the Sackmann's [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/), I will not attempt to profit from the model. Success will instead be evaluated by placing hypothetical over/under bets and recording the results on an Excel spreadhseet.
 
-*This is an ongoing project and the repository will continue to be updated as progress is made (updated August 6 2022)
+*This is an ongoing project and the repository will continue to be updated as progress is made (updated August 2022)
 ### Currently working on:
-  1). Sewing the three notebooks together
-  2). Improving modeling performance where possible (hyperparameter tuning, additional preprocessing, etc.)
+  1). Improving modeling performance where possible (hyperparameter tuning, additional preprocessing, etc.)
+  2). Preparing for comprehensive testing on U.S. Open matches
 
 ## About PrizePicks
 
-PrizePicks allows users to pick the over or under on player props across dozens of sports, one of which is tennis. Depending on the tournament, PrizePicks lists over/under lines for a number of categories which can be accessed online on the [PrizePicks](https://www.prizepicks.com) website or pulled directly into Python via the [PrizePicks API](https://github.com/PrizePicks-Analytics/PrizePicks-API/wiki). Below is a list of props and how they are calculated.
+PrizePicks allows users to pick the over or under on player props across dozens of sports, one of which is tennis. Depending on the tournament, PrizePicks lists over/under lines for a number of categories which can be accessed online on the [PrizePicks](https://www.prizepicks.com) website or pulled directly into Python via the [PrizePicks API](https://github.com/PrizePicks-Analytics/PrizePicks-API/wiki). This API call was conducted in the `future_match_scraper` notebook. Below is a list of props and how they are calculated.
 
 ### Aces
 
@@ -78,4 +78,4 @@ As the best performing model, the random forest regressor achieved a test R-squa
 
 For data with a standard deviation of 11.315, these results are satisfying. Though we believe they could still be improved with data cleaning refinements, these results are far more accurate than simply predicting a player's career average.
 
-The original question I set out to answer, however, is whether one could make money on PrizePicks using these predictions. To determine this, I will use the model predictions to make mock bets on the results of the U.S. Open at the end of August and beginning of September.
+The original question I set out to answer, however, is whether one could make money on PrizePicks using these predictions. To determine this, I will use the model predictions to make mock bets on the results of the U.S. Open at the end of August and beginning of September. To do so, the `ATP_script` notebook was created to prevent needing to run cells across multiple notebooks. I leave `ATP_data_cleaning`, `future_match_scraper`, and `ml_models` for completeness (`ml_models` for instance, includes fitting three models that are not including in the final script).
